@@ -23,8 +23,8 @@ public class ProdutoControlador {
 
     @PostMapping
     // Estrutura de uma função: visibilidade (public) -- retorno (String) -- nome (nomeFuncao) -- parâmetro
-    public String cadastrarProdutosC(@RequestBody Produto novoProdutoC) {
-        String produtoCadastrado = produtoServico.cadastrarProdutoS(novoProdutoC);
+    public Produto cadastrarProdutosC(@RequestBody Produto novoProdutoC) {
+        Produto produtoCadastrado = produtoServico.cadastrarProdutoS(novoProdutoC);
         return produtoCadastrado;
     }
 
