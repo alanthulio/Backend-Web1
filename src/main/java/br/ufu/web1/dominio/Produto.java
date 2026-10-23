@@ -1,6 +1,7 @@
 package br.ufu.web1.dominio;
 
 // Importação das anotações da biblioteca Lombok
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +19,7 @@ import java.sql.Types;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="produto")
+@Table(name = "produto")
 //
 public class Produto {
     @Id
