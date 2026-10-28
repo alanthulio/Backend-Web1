@@ -1,4 +1,18 @@
 services:
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: no
+    profiles:
+      - dev
+    environment:
+      - NGROK_AUTHTOKEN=3LKu3u9OpMa2Ys1gaYvP3nb6OaZ_KSoDGgfMbA8Q3ZDu7926
+    command: "http --domain=landing-unhearing-visible.ngrok-free.dev host.docker.internal:8082"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - default
+
   postgres:
     image: postgres:15-alpine
     container_name: postgres_db
