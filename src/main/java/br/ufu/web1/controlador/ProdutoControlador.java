@@ -2,6 +2,7 @@ package br.ufu.web1.controlador;
 
 import br.ufu.web1.dominio.Produto;
 import br.ufu.web1.servico.ProdutoServico;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class ProdutoControlador {
 
     @PostMapping
     // Estrutura de uma função: visibilidade (public) -- retorno (String) -- nome (nomeFuncao) -- parâmetro
-    public Produto cadastrarProdutosC(@RequestBody Produto novoProdutoC) {
+    public Produto cadastrarProdutosC(@RequestBody @Valid Produto novoProdutoC) {
         Produto produtoCadastrado = produtoServico.cadastrarProdutoS(novoProdutoC);
         return produtoCadastrado;
     }
@@ -35,7 +36,7 @@ public class ProdutoControlador {
     }
 
     @PutMapping("/{id}")
-    public String atualizarProdutoC(@PathVariable Long id, @RequestBody Produto atualizarProdutoC){
+    public String atualizarProdutoC(@PathVariable Long id, @RequestBody @Valid Produto atualizarProdutoC){
         String produtoAtualizado = produtoServico.atualizarProdutoS(id, atualizarProdutoC);
         return produtoAtualizado;
     }
